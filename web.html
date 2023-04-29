@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <title>web</title>
+    <style>
+
+        *{
+            font-family: 'Raleway', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            height: 1500px;
+            background-color: #dfdfdf;
+        }
+        
+        #nav{
+            height: 64px;
+            width: 100%;
+            background-color: #111111;
+        }
+        #navLabel{
+            font-size: 30px;
+            line-height: 64px;
+            color: #CBCBCB;
+            padding: 0 75px;
+        }
+        #navList{
+            float: right;
+            margin-right: 80px;
+            user-select: none;
+        }
+        #navList li{
+            display: inline-block;
+            line-height: 64px;
+            padding: 0 10px;
+        }
+        #navList li a{
+            color: #CBCBCB;
+            text-decoration: none;
+            position: relative;
+        }
+        #navList li a:hover{
+            color: #e6e6e6;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #navList li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background-color: #e6e6e6;
+            transition: width 0.15s ease-out;
+        }
+
+        #navList li a:hover::after {
+            width: 100%;
+        }
+
+
+        #introSection{
+            width: 100%;
+            height: 50vh;
+            background-color: #111111;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        #introSection h1{
+            color: #EEEEEE;
+            font-size: 60px;
+            margin: 0 0 20px 100px;
+            user-select: none;
+        }
+        #introSection p{
+            margin: 0 0 50px 102.5px;
+            color: #999999;
+        }
+
+        .slideAnimation{
+            opacity: 0;
+            filter: blur(1px);
+            transform: translateX(-100%);
+        }
+
+        .show{
+            opacity: 1;
+            transition: all 1.2s;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        .triangleShape {
+            position: absolute;
+            top: 100;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .triangleShape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 125px;
+        }
+
+        .triangleShape .shape-fill {
+            fill: #111111;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="nav">
+            <label id="navLabel">Coaching</label>
+            <ul id="navList">
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Kontakty</a></li>
+                <li><a href="#">Služby</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <section id="introSection">
+            <div id="textDiv">
+                <h1 class="slideAnimation">
+                    Strong Mentality<br>
+                    Coaching
+                </h1>
+                <p class="slideAnimation">
+                    description text description textfdsa f<br>
+                    description text description textfasfdf
+                </p>
+            </div>
+        </section>
+        <div class="triangleShape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </div>
+    <script>
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                console.log(entry)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.slideAnimation');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+    </script>
+</body>
+</html>
