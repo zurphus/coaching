@@ -43,6 +43,7 @@
             user-select: none;
         }
         #navList li{
+            font-size: 1em;
             display: inline-block;
             line-height: 64px;
             padding: 0 10px;
@@ -76,6 +77,46 @@
         }
         #navList li a:active {
             color: #c7c7c7;
+        }
+
+
+        #burgerButton {
+            display: none;
+            width: 50px;
+            height: 38px;
+            place-items: center;
+            position: absolute;
+            top: 12.5px;
+            right: 50px;
+            z-index: 9999;
+            cursor: pointer; /* optional */
+            margin-bottom: 10px;
+        }
+
+        #burgerMenu {
+            width: 45px;
+            height: 4.5px;
+            border-radius: 25px;
+            background-color: #e6e6e6;
+            position: relative;
+        }
+
+        #burgerMenu::before,
+        #burgerMenu::after {
+            content: "";
+            position: absolute;
+            width: 45px;
+            height: 4.5px;
+            border-radius: 25px;
+            background-color: #e6e6e6;
+        }
+
+        #burgerMenu::before {
+            top: -15px;
+        }
+
+        #burgerMenu::after {
+            bottom: -15px;
         }
 
 
@@ -120,7 +161,7 @@
             filter: blur(1px);
             transform: translateX(-100%);
             animation: showSecond 1s forwards;
-            animation-delay: 0.2s;
+            animation-delay: 0.25s;
         }
 
         @keyframes showSecond {
@@ -161,11 +202,27 @@
                 width: calc(100% + 1.3px);
                 height: 80px;
             }
+            #introSection h1{
+                font-size: 30px;
+            }
+            #introSection p{
+                font-size: 12px;
+            }
+            #coachingText{
+                display: grid;
+                place-items: center;
+            }
+            #navList{
+                display: none;
+            }
+            #burgerButton {
+                display: grid;
+            }
         }
         @media (min-width: 1200px) {
             .triangleShape svg {
                 width: calc(100% + 1.3px);
-                height: 150px;
+                height: 160px;
             }
         }
         @media (min-width: 1500px) {
@@ -173,17 +230,29 @@
                 width: calc(100% + 1.3px);
                 height: 180px;
             }
+            #introSection h1{
+                font-size: 70px;
+            }
+            #introSection p{
+                font-size: 20px;
+            }
         }
         @media (min-width: 1800px) {
             .triangleShape svg {
                 width: calc(100% + 1.3px);
                 height: 200px;
             }
+            #introSection h1{
+                font-size: 75px;
+            }
+            #introSection p{
+                font-size: 22.5px;
+            }
         }
         #space{
             width: 100%;
             height: 900px;
-            background-color: #dfdfdf;
+            background: linear-gradient(to left, #d4d4d4, #dfdfdf, #d4d4d4), linear-gradient(to right, #d4d4d4, #dfdfdf, #d4d4d4);
         }
 
 
@@ -193,38 +262,64 @@
 
 
         .custom-shape-divider-top-1683488946 {
-    position: absolute;
-    bottom: -1;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
+            position: absolute;
+            bottom: -1;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
 
-.custom-shape-divider-top-1683488946 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 150px;
-}
+        }
 
-.custom-shape-divider-top-1683488946 .shape-fill {
-    fill: #dfdfdf;
-}
+        .custom-shape-divider-top-1683488946 svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 150px;
 
-/** For mobile devices **/
-@media (max-width: 767px) {
-    .custom-shape-divider-top-1683488946 svg {
-        width: calc(100% + 1.3px);
-        height: 73px;
-    }
-}
-#spaceTwo{
-    width: 100%;
-    height: 400px;
-    background-color: #111111;
-}
+        }
+
+        .custom-shape-divider-top-1683488946 .shape-fill {
+            fill: #dfdfdf;
+        }
+
+        /** For mobile devices **/
+        @media (max-width: 767px) {
+            .custom-shape-divider-top-1683488946 svg {
+                width: calc(100% + 1.3px);
+                height: 73px;
+            }
+        }
+        #spaceTwo{
+            width: 100%;
+            height: 400px;
+            background-color: #111111;
+        }
+
+
+        .hfjdahfkds{
+            color: white;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -242,12 +337,15 @@
                 <li><a href="#">Služby</a></li>
                 <li><a href="#FAQpage">FAQ</a></li>
             </ul>
+            <div id="burgerButton">
+                <div id="burgerMenu"></div>
+            </div>              
         </div>
         <section id="introSection">
             <div id="textDiv">
                 <h1 class="slideAnimation">
                     Strong Mentality<br>
-                    Coaching
+                    <span id="coachingText">Coaching</span>
                 </h1>
                 <p class="slideAnimationTwo">
                     description text description textfdsa f<br>
@@ -260,7 +358,26 @@
                 <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
             </svg>
         </div>
-        <div id="space"></div>
+
+
+
+
+
+
+
+
+
+
+        <div id="space">
+            
+            
+        </div>
+
+
+
+
+
+
 
 
 
@@ -297,6 +414,8 @@
         const secondHiddenElements = document.querySelectorAll('.slideAnimationTwo');
         hiddenElements.forEach((el) => observer.observe(el));
         secondHiddenElements.forEach((el) => secondObserver.observe(el));
+
+
 
 
 
