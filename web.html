@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <title>web</title>
+    <title>test web</title>
     <style>
 
         html{
@@ -82,11 +82,11 @@
 
         #burgerButton {
             display: none;
-            width: 50px;
-            height: 38px;
+            width: 30px;
+            height: 30px;
             place-items: center;
             position: absolute;
-            top: 12.5px;
+            top: 15px;
             right: 50px;
             z-index: 9999;
             cursor: pointer; /* optional */
@@ -94,8 +94,8 @@
         }
 
         #burgerMenu {
-            width: 45px;
-            height: 4.5px;
+            width: 30px;
+            height: 3px;
             border-radius: 25px;
             background-color: #e6e6e6;
             position: relative;
@@ -105,18 +105,18 @@
         #burgerMenu::after {
             content: "";
             position: absolute;
-            width: 45px;
-            height: 4.5px;
+            width: 30px;
+            height: 3px;
             border-radius: 25px;
             background-color: #e6e6e6;
         }
 
         #burgerMenu::before {
-            top: -15px;
+            top: -10px;
         }
 
         #burgerMenu::after {
-            bottom: -15px;
+            bottom: -10px;
         }
 
 
@@ -249,10 +249,23 @@
                 font-size: 22.5px;
             }
         }
+        #spaceBefore{
+            width: 100%;
+            height: 200px;
+            background-color: #dfdfdf;
+        }
         #space{
             width: 100%;
-            height: 900px;
-            background: #dfdfdf;
+            min-height: auto;
+            background: linear-gradient(to left, #d4d4d4, #dfdfdf, #d4d4d4), linear-gradient(to right, #d4d4d4, #dfdfdf, #d4d4d4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #spaceAfter{
+            width: 100%;
+            height: 200px;
+            background-color: #dfdfdf;
         }
 
 
@@ -298,8 +311,80 @@
         }
 
 
-        .hfjdahfkds{
-            color: white;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .faqTitle{
+            margin: auto;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1c1c1c;
+        }
+        .faq{
+            max-width: 700px;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #1c1c1c;
+            cursor: pointer;
+            color: #1c1c1c;
+        }
+
+        .question{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question h3{
+            font-size: 1.8rem;
+            color: #1c1c1c;
+        }
+        .answer{
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+        .faq.show .answer{
+            max-height: 300px;
+        }
+        .answer p {
+            padding-top: 1rem;
+            line-height: 1.6;
+            font-size: 1.4rem;
+            color: #1c1c1c;
+        }
+        .faq.show ion-icon{
+            transform: rotate(180deg);
+        }
+        .question ion-icon{
+            width: 30px;
+            height: 30px;
+            color: #1c1c1c;
+            transition: all 0.5s ease;
         }
 
 
@@ -313,7 +398,33 @@
 
 
 
-
+        #sidebar{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #111111;
+            border-left: 1px solid #d4d4d4;
+            z-index: 1000;
+            transition: all 0.5s ease;
+        }
+        #sidebar ul{
+            display: block;
+            float: left;
+            margin-left: 5%;
+        }
+        #sidebar li{
+            display: block;
+        }
+        #sidebar.sidebarShow{
+          width: 70%;
+        }
+        #container.containerShadow-sidebar{
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10000000000000;
+        }
 
 
 
@@ -335,11 +446,18 @@
                 <li><a href="#">O nás</a></li>
                 <li><a href="#">Kontakty</a></li>
                 <li><a href="#">Služby</a></li>
-                <li><a href="#FAQpage">FAQ</a></li>
+                <li><a href="#spaceBefore">FAQ</a></li>
             </ul>
             <div id="burgerButton">
                 <div id="burgerMenu"></div>
             </div>              
+        </div>
+        <div id="sidebar">
+            <ul id="navList">
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Kontakty</a></li>
+                <li><a href="#">Služby</a></li>
+            </ul>
         </div>
         <section id="introSection">
             <div id="textDiv">
@@ -360,27 +478,69 @@
         </div>
 
 
-
-
-
-
-
-
-
-
+        <div id="spaceBefore"></div>
         <div id="space">
-            
-            
+            <section>
+                <h2 class="faqTitle">FAQs</h2>
+                <div class="faq">
+                    <div class="question">
+                        <h3>Question question</h3>
+        
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="question">
+                        <h3>Question question</h3>
+        
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="faq">
+                    <div class="question">
+                        <h3>Question question</h3>
+        
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                            Answer AnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswerAnswer
+                            AnswerAnswerAnswerAnswer Answer
+                        </p>
+                    </div>
+                </div>
+            </section>
         </div>
-
-
-
-
-
-
-
-
-
+        <div id="spaceAfter"></div>
 
 
 
@@ -415,10 +575,31 @@
         hiddenElements.forEach((el) => observer.observe(el));
         secondHiddenElements.forEach((el) => secondObserver.observe(el));
 
+        const faqs = document.querySelectorAll('.faq');
+        const faqIcons = document.querySelectorAll('ion-icon');
+
+        faqs.forEach((faq, index) => {
+        faq.addEventListener('click', function() {
+            faq.classList.toggle('show');
+            faqIcons[index].classList.toggle('toggle');
+        });
+        });
+
+        const burgerButton = document.getElementById('burgerButton')
+        const sidebar = document.getElementById('sidebar')
+        const container = document.getElementById('container')
+
+        burgerButton.addEventListener('click', function(){
+            console.log('clicked')
+            sidebar.classList.toggle('sidebarShow')
+            container.classList.toggle('containerShadow-sidebar')
+        });
 
 
 
 
     </script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
